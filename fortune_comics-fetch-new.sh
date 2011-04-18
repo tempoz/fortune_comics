@@ -15,7 +15,7 @@ element=$(($RANDOM % ${#scripts[@]}))
 script=${scripts[ $element ]}
 
 quote=""
-while [ -z "$quote" ] ; do
+while [ -z "`echo -e "$quote" | sed "s/\n.*$//g"`" ] ; do
   quote=`~/.fortune_comics/scripts/$script`
 done
 
