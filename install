@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$1" == uninstall ] ; then
+  rm -r ~/.fortune_comics
+  rm ~/bin/fortune_comics.sh
+  exit
+fi
+
+if ! [ -d ~/.fortune_comics/ ] ; then
+  mkdir ~/.fortune_comics/
+fi
+
+if ! [ -d ~/.fortune_comics/scripts/ ] ; then 
+  mkdir ~/.fortune_comics/scripts/
+fi
+
+cp *.sh ~/.fortune_comics/scripts/
+mv ~/.fortune_comics/scripts/fortune_comics.sh ~/bin/fortune_comics.sh
+mv ~/.fortune_comics/scripts/fortune_comics-fetch-new.sh ~/.fortune_comics/fortune_comics-fetch-new.sh
