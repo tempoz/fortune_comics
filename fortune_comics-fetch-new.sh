@@ -1,7 +1,6 @@
 #!/bin/bash
 
-count=`ps aux | grep fortune_comics-fetch-new.sh$ | wc -l`
-echo $count
+count=`ps aux | egrep "([^\s]*\s*){10}/bin/bash\s*.*fortune_comics-fetch-new.sh$" | wc -l`
 if [ $count -gt 2 ] ; then
   exit
 fi
